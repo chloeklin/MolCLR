@@ -19,4 +19,4 @@ source molclr-venv/bin/activate
 cd molclr
 
 # Run the Python script with the current parameters
-python3 finetune.py 
+python3 scripts/finetune.py 
