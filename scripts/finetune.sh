@@ -20,3 +20,4 @@ cd MolCLR
 
 # Run the Python script with the current parameters
 python3 finetune.py 
+
