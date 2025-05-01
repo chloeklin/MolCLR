@@ -192,13 +192,16 @@ class MolTestDatasetWrapper(object):
     def get_train_validation_data_loaders(self, train_dataset):
         if self.splitting == 'random':
             # obtain training indices that will be used for validation
-            num_train = len(train_dataset)
-            indices = list(range(num_train))
-            np.random.shuffle(indices)
+            # num_train = len(train_dataset)
+            # indices = list(range(num_train))
+            # np.random.shuffle(indices)
 
-            split = int(np.floor(self.valid_size * num_train))
-            split2 = int(np.floor(self.test_size * num_train))
-            valid_idx, test_idx, train_idx = indices[:split], indices[split:split+split2], indices[split+split2:]
+            # split = int(np.floor(self.valid_size * num_train))
+            # split2 = int(np.floor(self.test_size * num_train))
+            # valid_idx, test_idx, train_idx = indices[:split], indices[split:split+split2], indices[split+split2:]
+            random_state = np.random.RandomState(seed=42)
+            perm = torch.from_numpy(random_state.permutation(np.arange(130831))).long()
+            train_idx, valid_idx, test_idx = perm[:110000], perm[110000:120000], perm[120000:]
         
         elif self.splitting == 'scaffold':
             train_idx, valid_idx, test_idx = scaffold_split(train_dataset, self.valid_size, self.test_size)
