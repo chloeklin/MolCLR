@@ -8,7 +8,7 @@
 #PBS -l walltime=00:10:00
 #PBS -l storage=scratch/um09
 #PBS -l jobfs=100GB
-#PBS -v PYTHONPATH=/scratch/um09/hl4138/llm-venv/lib/python3.10/site-packages
+#PBS -v PYTHONPATH=/scratch/um09/hl4138/molclr-venv/lib/python3.8/site-packages
 
 cd /scratch/um09/hl4138
 
@@ -19,4 +19,4 @@ source molclr-venv/bin/activate
 cd molclr
 
 # Run the Python script with the current parameters
-python3 scripts/finetune.py 
+python3 finetune.py

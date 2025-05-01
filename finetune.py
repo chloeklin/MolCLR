@@ -104,7 +104,7 @@ class FineTune(object):
         self.normalizer = None
         if self.config["task_name"] in ['qm7', 'qm9']:
             labels = []
-            for d, __ in train_loader:
+            for d in train_loader:
                 labels.append(d.y)
             labels = torch.cat(labels)
             self.normalizer = Normalizer(labels)
