@@ -200,7 +200,7 @@ class MolTestDatasetWrapper(object):
             # split2 = int(np.floor(self.test_size * num_train))
             # valid_idx, test_idx, train_idx = indices[:split], indices[split:split+split2], indices[split+split2:]
             random_state = np.random.RandomState(seed=42)
-            perm = torch.from_numpy(random_state.permutation(np.arange(130831))).long()
+            perm = torch.from_numpy(random_state.permutation(np.arange(130830))).long()
             train_idx, valid_idx, test_idx = perm[:110000], perm[110000:120000], perm[120000:]
         
         elif self.splitting == 'scaffold':
